@@ -11,6 +11,12 @@ import (
 	"os"
 )
 
+func init() {
+	if os.Getenv("MONGODB_URI") == "" {
+		log.Fatal("Missing MONGODB_URI environment variable")
+	}
+}
+
 func main() {
 	log.SetFlags(0)
 
@@ -28,12 +34,7 @@ func main() {
 		log.Fatal("Missing keyword")
 	}
 
-	uri := os.Getenv("MONGODB_URI")
-	if uri == "" {
-		log.Fatal("Missing MONGODB_URI environment variable")
-	}
-
-	client, err := mongo.NewClient(options.Client().ApplyURI(uri))
+	client, err := mongo.NewClient(options.Client().ApplyURI(os.Getenv("MONGODB_URI")))
 	if err != nil {
 		log.Fatal(err)
 	}
