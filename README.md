@@ -33,7 +33,7 @@ devtionary -h
 ### Install executable
 
 ```shell
-go install github.com/toanpp98/devtionary@latest
+go install github.com/toanppp/devtionary@latest
 ```
 
 ### GOPATH
