@@ -1,4 +1,4 @@
-module github.com/toanpp98/devtionary
+module github.com/toanppp/devtionary
 
 go 1.18
 
